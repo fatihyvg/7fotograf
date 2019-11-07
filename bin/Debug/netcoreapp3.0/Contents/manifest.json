@@ -1,0 +1,7 @@
+{
+  "name": "Mobil",
+  "short_name": "7fotograf",
+  "description": "Fotoğraf Portfolyo",
+  "display": "standalone",
+  "start_url": "https://www.7fotograf.com"
+}

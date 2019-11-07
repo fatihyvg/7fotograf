@@ -1,0 +1,7 @@
+@model List<Category>
+<ul class="menu-list">
+    @foreach (var item in Model)
+    {
+         <li><a class="menu-title" href="@Url.Action("FetchList","Category",new {usercategory = item.CategoryName})" >@item.CategoryName</a></li>
+    }       
+</ul>

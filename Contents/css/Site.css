@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #F2F2F2;
+} 
+body > .navbar {
+    height: 120px;
+    width: 100%;
+    background: #242614;
+}
+#category {
+    height: auto;
+    width: 300px;
+    margin-left: 30px;
+    margin-top: -10px;
+}
+#upload {
+    position: relative;
+    top: 50px;
+    right:60px;
+    color: white;
+    line-height: 22px;
+    font-size: 18px;
+    font-family: clairo;
+}
+#upload-menu {
+    margin-left: 37%;
+}
+#category-button {
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+}
+#modal-title {
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    color:black;
+}
+#preview {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-left: -80px;
+}
+#selects {
+    position: relative;
+    top: 50px;
+    right: 50px;
+}
+ #story {
+    height: 150px;
+    width: 300px;
+    margin-top: 5px;
+    margin-left: -80px;
+    resize: none;
+    padding: 0;
+}
+#updates {
+    height: 40px;
+    width: 100px;
+    color: black;
+    background: gainsboro;
+}
+#text-content {
+    height: 200px;
+    width: 300px;
+}
+#content-area {
+   height: 200px;
+   width: 300px;
+   resize: none;
+}
+.login {
+    margin-top: 40px;
+    margin-right: 30px;
+}
+.login-info {
+    position: relative;
+    top:5px;
+    right:30px;
+    color: white;
+}
+.menu-title {
+    padding: 0px;
+    margin: 0px;
+}
+.logout {
+    padding-left: 10px;
+    color: black;
+}
+body > .footer {
+    height: 100px;
+    width: 100%;
+    background: red;
+}

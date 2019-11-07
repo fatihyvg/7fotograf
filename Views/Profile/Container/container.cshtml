@@ -1,0 +1,55 @@
+@model List<ImagePosition>
+<div class="container is-mobile" style="margin-top:130px;">
+  <div class="columns is-mobile">
+    <div class="column">
+             <div id="profilegallery"> 
+                  @foreach (var items in Model)
+                  {
+                    <div class="item">
+                      <a href=""><img  src="~/@items.ImagePath" alt="@items.Story" /></a>   
+                      <div class="caption" style="display: none;">
+                         <div class="dropdown is-hoverable">
+                               <div class="dropdown-trigger">
+                                     <button id="updates" class="button" aria-haspopup="true" aria-controls="menus">
+                                            <span>Güncelle</span>
+                                            <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                            </span>
+                                     </button>
+                               </div>
+                               <div class="dropdown-menu" id="menus" role="menu">
+                                 <div class="dropdown-content">
+                                      <div id="text-content">
+                                        <form asp-controller="Profile" asp-action="Update" asp-route-Id="@items.Id" data-ajax="true" data-ajax-method="post" data-ajax-complete="upcomplete"  data-ajax-failure="upfailed" >
+                                        <textarea id="content-area" name="updatestory">@items.Story</textarea>
+                                        <button type="submit">Tamam</button>
+                                        </form>
+                                      </div>
+                                 </div>
+                               </div>     
+                           </div>
+                           <form asp-controller="Profile" asp-action="DeleteImage" asp-route-Id="@items.Id" data-ajax="true" data-ajax-method="post" data-ajax-complete="delcomplete" data-ajax-failure="delfailed" data-ajax-success="removeImage(this);">
+                                <button type="submit" style="height: 40px; width: 100px; background: cadetblue; color:white;">Sil</button>
+                           </form>
+                         </div>
+                      </div>                      
+                  }      
+        </div>
+</div>
+<script>
+upfailed = function(xhr) {
+  alert("Hata Oluştu")
+}
+upcomplete = function(xhr){
+     alert("Güncellendi");
+} 
+delcomplete = function(xhr) {
+   alert("Fotoğraf Silindi");
+}
+delfailed = function(xhr){
+  alert("Bir Hata Oluştu");
+}
+function removeImage(form){
+  $(form).parents('.item').remove();
+}
+</script>

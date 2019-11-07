@@ -1,0 +1,15 @@
+@using Microsoft.AspNetCore.Authentication;
+@inject IAuthenticationSchemeProvider scheme
+<nav class="navbar is-mobile is-fixed-top">
+  <div class="navbar-brand">
+       <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Contents/img/7fotograf-logo.png")" alt="7fotograflogo" /></a>
+  </div>
+  <div class="navbar-end">
+     @foreach (var item in await scheme.GetRequestHandlerSchemesAsync())
+     {
+        <a class="login" asp-action="Login" asp-route-provider="@item.Name" asp-route-returnUrl="@Url.RouteUrl("returnUrl")">
+          <img src="@Url.Content("~/Contents/img/7fotograflogin.png")" alt="7fotograflogin" />
+        </a>
+     }
+  </div>
+</nav>

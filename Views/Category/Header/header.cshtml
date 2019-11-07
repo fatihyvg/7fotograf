@@ -1,0 +1,9 @@
+@using Microsoft.AspNetCore.Http
+<nav class="navbar is-mobile is-fixed-top">
+  <div class="navbar-brand">
+       <a href="@Url.Action("login","List")"><img src="@Url.Content("~/Contents/img/7fotograf-logo.png")" alt="7fotograflogo" /></a>
+  </div>
+  <div class="navbar-end">
+        <a style="color: red;">@Context.Session.GetString("name")</a>
+  </div>
+</nav>

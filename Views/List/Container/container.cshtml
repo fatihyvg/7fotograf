@@ -1,0 +1,27 @@
+@using Microsoft.AspNetCore.Http
+@model List<Category>
+<div class="container is-mobile" style="margin-top: 130px;">
+<div class="columns is-mobile">
+   <div class="column is-one-fifth" style="width: 200px;">
+      <div id="category">
+  
+         <ul class="menu-list">
+          <li><a class="logout" asp-controller="Profile" asp-action="ProfileSettings" asp-route-userfbıd="@Context.Session.GetString("Id")">Fotoğraflarım</a></li>
+           <li> <a class="logout" asp-controller="Home" asp-action="LogOut">Çıkış</a></li>
+         </ul>
+          <p class="menu-label">Kategoriler</p>             
+     
+        <ul class="menu-list">
+         @foreach (var item in Model)
+         {
+            <li><a class="menu-title" href="@Url.Action("FetchList","Category",new {usercategory = item.CategoryName})">@item.CategoryName</a></li>
+         }
+       </ul>
+   
+       </div> 
+   </div>
+   <div class="column" style="width: 500px;">
+         @await Component.InvokeAsync("ımagegallery")
+   </div>
+</div>
+</div>

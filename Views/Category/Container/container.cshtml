@@ -1,0 +1,24 @@
+@using Microsoft.AspNetCore.Http
+@model List<ImagePosition>
+<div class="container is-mobile" style="margin-top: 130px;">
+<div class="columns is-mobile">
+   <div class="column is-one-fifth" style="width: 200px;">
+      <div id="category">
+         <ul class="menu-list">
+          <li><a class="logout" asp-controller="Profile" asp-action="ProfileSettings" asp-route-userfbıd="@Context.Session.GetString("Id")">Fotoğraflarım</a></li>
+           <li> <a class="logout" asp-controller="Home" asp-action="LogOut">Çıkış</a></li>
+         </ul>
+          <p class="menu-label">Kategoriler</p>
+            @await Component.InvokeAsync("categorylist")
+       </div> 
+   </div>
+   <div class="column" style="width: 500px;">
+         <div id="categorygallery" class="justified-gallery">
+            @foreach (var item in Model)
+            {
+                <a><img src="~/@item.ImagePath" alt="@item.Story" /></a>
+            }
+         </div> 
+   </div>
+</div>
+</div>

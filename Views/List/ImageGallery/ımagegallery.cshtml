@@ -1,0 +1,7 @@
+@model List<ImagePosition>
+<div id="listgallery" class="justified-gallery">
+  @foreach (var item in Model)
+  {
+      <a href="@Url.Action("Views","Photo")"><img src="~/@item.ImagePath" alt="@item.Story" /></a>
+  }          
+</div>  

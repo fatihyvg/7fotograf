@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="manifest" href="@Url.Content("~/Contents/manifest.json")" />  
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Contents/css/Site.css")" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Contents/css/bulma.min.css")" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Contents/css/justifiedGallery.css")" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Contents/css/jquery.hoverGrid.css")" />
+        <script type="text/javascript" src="@Url.Content("~/Contents/js/jquery-3.4.1.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Contents/js/jquery.unobtrusive-ajax.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Contents/js/starter.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Contents/js/jquery.justifiedGallery.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Contents/js/jquery.hoverGrid.js")"></script>     
+         <script type="text/javascript" src="@Url.Content("~/Contents/js/pwabuilder-sw.js")"></script>  -->
+        <script type="text/javascript">
+            if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("Service Wroker Not Found");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker.register('@Url.Content("~/Contents/js/pwabuilder-sw.js")').then(function (reg) {
+        console.log("Scoped " + reg.scope);
+      });
+  }
+} 
+        </script>  
+        <title>ads</title>
+    </head>
+    <body>
+        @RenderBody()
+    </body>
+</html>

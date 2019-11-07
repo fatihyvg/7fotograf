@@ -1,0 +1,10 @@
+﻿{
+    "_7fotograf": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://www.7fotograf.com:5001;http://www.7fotograf.com",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+}

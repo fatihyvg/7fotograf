@@ -1,0 +1,74 @@
+@using Microsoft.AspNetCore.Http
+@model List<Category>
+<div id="upload-modal" class="modal is-mobile">
+    <div class="modal-background"></div>
+
+    <div class="modal-content" style="width: 700px; height:auto; background: white; position: relative; top:15%;">
+
+        <header class="modal-card-body">
+          <p id="modal-title" class="modal-card-title">Fotoğraf Yükle</p>
+        </header>
+        <form id="upload-form" method="post" enctype="multipart/form-data" data-ajax="true" data-ajax-method="post" data-ajax-url="/List/ImageUpload"  data-ajax-complete="complete"  data-ajax-failure="failed">
+        <ul id="upload-menu" class="menu-list">
+          <li>
+             <div class="file">
+                <label class="file-label">
+                    <input type="file" class="file-input" name="file">
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                         Fotoğraf Seç
+                      </span>
+                    </span>
+                </label>
+             </div>
+          </li>
+          <li>
+             <div class="dropdown is-hoverable">
+                 <div class="dropdown-trigger">
+                    <button id="category-button" class="button" aria-haspopup="true" aria-controls="menus">Kategori Seç</button>
+                    <span class="icon is-small">
+                     <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                 </div>
+                 <div class="dropdown-menu" id="menus" role="menu">
+                    <div class="dropdown-content" style="margin-right: 40px; width:110px;">
+                     <div class="dropdown-item">
+                         @foreach (var item in Model)
+                         {
+                               <label class="checkbox">
+                                 <input type="checkbox" name="category" value="@item.CategoryName" onchange="checkedcontrol();">
+                                 @item.CategoryName
+                               </label>
+                         }
+                     </div>
+                    </div>
+                 </div>
+             </div>
+          </li>
+          <li>
+              <input type="hidden" value="@Context.Session.GetString("Id")" name="fbıd" />
+              <input type="hidden" value="@Context.Session.GetString("name")" name="fbname" />
+              <input type="hidden" value="@Context.Session.GetString("email")" name="fbemail" />
+              <input type="hidden" value="0" name="app" />
+          </li>
+          <li>
+              <img id="preview" />
+          </li>
+          <li>
+            <h1>Hikayesini Paylaş</h1>
+            <textarea id="story" name="story">
+
+            </textarea>
+          </li>
+           <footer class="modal-card-foot">
+            <input type="submit" value="Yükle"/>
+        </footer>
+        </ul>
+        </form>
+    </div>
+
+    <button id="closer" class="modal-close is-larger" aria-label="close"></button>
+</div>

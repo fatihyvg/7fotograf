@@ -1,0 +1,13 @@
+@model List<ImagePosition>
+<div class="container" style="margin-top: 130px;">
+   <div class="columns is-mobile">
+        <div class="column">
+            <div id="homegallery" class="justified-gallery">
+              @foreach (var item in Model)
+              {
+                  <a><img src="@item.ImagePath" alt="@item.Story" /></a>
+              }
+            </div> 
+        </div>
+   </div>
+</div>
